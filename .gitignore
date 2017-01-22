@@ -1,0 +1,15 @@
+/vendor/
+/docs/
+
+# Editor backup files
+.*.swp
+*~
+~*
+
+# Cache files
+/skins/cache/
+
+# Site-specific files
+/config.php
+/fti/
+
