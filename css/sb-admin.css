@@ -225,3 +225,15 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+// Footer - thanks to https://css-tricks.com/snippets/css/fixed-footer/
+// TODO make this work with sbadmin
+div#footer {
+   position:absolute;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#ccc;
+   z-index: 100;
+}

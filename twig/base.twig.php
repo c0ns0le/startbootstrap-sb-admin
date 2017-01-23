@@ -50,7 +50,7 @@ David Miller at Blackrock Digital
                     <span class="icon-bar"></span>
                 </button>
                 {% endif %}{# topitems #}
-                <a class="navbar-brand" href="index.html">{{ short_title }}</a>
+                <a class="navbar-brand" href="{{gen('root')}}">{{ short_title }}</a>
             </div>
 
             <!-- Top Menu Items -->
@@ -161,6 +161,8 @@ David Miller at Blackrock Digital
                             <small>{{content.subtitle}}</small>
                             {% endif %}
                         </h1>
+                        {% block crumbnav %}
+                        {# So you can disable it entirely if you want. #}
                         {% if crumbs is defined %}
                         <ol class="breadcrumb">
                             {% for crumb in crumbs %}
@@ -172,16 +174,21 @@ David Miller at Blackrock Digital
                             {% endfor %}
                         </ol>
                         {% endif %}{# crumbs #}
+                        {% endblock %}{# crumbnav #}
                     </div>
                 </div>
                 <!-- /.row -->
 
+                {% block body %}
                 {% for row in rows %}
                 <div class="row">
                     {{row}}
                 </div>
                 <!-- /.row -->
                 {% endfor %}
+                {% endblock %}{# body #}
+
+                {% block body2 %}{% endblock %}
 
             </div>
             <!-- /.container-fluid -->
@@ -191,6 +198,15 @@ David Miller at Blackrock Digital
 
     </div>
     <!-- /#wrapper -->
+
+    <div id="footer">
+    Brought to you by <a href="https://bitbucket.org/inclinescene/public">Incline</a>.  Code by <a href="http://www.devwrench.com">cxw</a>.
+    Hosted by <a href="http://planet-d.net">Guardian</a>.
+    <a href="https://github.com/cxw42/startbootstrap-sb-admin">Theme</a>
+    based on
+    <a href="https://startbootstrap.com/template-overviews/sb-admin/">SB Admin</a>
+    by <a href="http://davidmiller.io/">David Miller</a>.
+    </div>
 
     <!-- jQuery -->
     <script src="{{skin}}/js/jquery.js"></script>
