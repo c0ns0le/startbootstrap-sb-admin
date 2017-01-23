@@ -49,7 +49,7 @@ David Miller at Blackrock Digital
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                {% endif %}{# topitems #}
+                {% endif %}{# sideitems #}
                 <a class="navbar-brand" href="{{gen('root')}}">{{ short_title }}</a>
             </div>
 
@@ -58,33 +58,17 @@ David Miller at Blackrock Digital
             <ul class="nav navbar-right top-nav">
                 {% for topitem in topitems %}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope {{ topitem.class }}"></i> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa {{ topitem.class }}" {{ topitem.a_extra_inner|default('')|raw }}></i>{{topitem.a_extra|default('')|raw}} <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
                         {% for entry in topitem.entries %}
-                        <li class="message-preview">
-                            {{ entry }}
-                            {#
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                            #}
+                        <li>
+                            {{ entry|raw }}
                         </li>
-                        {% endfor %}{# entry#}
+                        {% endfor %}{# entry #}
                         {% if topitem.footer is defined %}
+                        <li class="divider"></li>
                         <li class="message-footer">
-                            {{ topitem.footer }}
-                            {#<a href="#">Read All New Messages</a>#}
+                            {{ topitem.footer|raw }}
                         </li>
                         {% endif %}
                     </ul>
@@ -169,7 +153,7 @@ David Miller at Blackrock Digital
                             <li {% if loop.last %}class="active"{% endif %}>
                                 <i class="fa {#
                                     #}{{ crumb.icon_class|default('')}}"></i>
-                                    <a href="{{crumb.href}}">{{crumb.text}}</a>
+                                    <a href="{{crumb.href|raw}}">{{crumb.text}}</a>
                             </li>
                             {% endfor %}
                         </ol>
@@ -182,7 +166,7 @@ David Miller at Blackrock Digital
                 {% block body %}
                 {% for row in rows %}
                 <div class="row">
-                    {{row}}
+                    {{row|raw}}
                 </div>
                 <!-- /.row -->
                 {% endfor %}
@@ -198,15 +182,6 @@ David Miller at Blackrock Digital
 
     </div>
     <!-- /#wrapper -->
-
-    <div id="footer">
-    Brought to you by <a href="https://bitbucket.org/inclinescene/public">Incline</a>.  Code by <a href="http://www.devwrench.com">cxw</a>.
-    Hosted by <a href="http://planet-d.net">Guardian</a>.
-    <a href="https://github.com/cxw42/startbootstrap-sb-admin">Theme</a>
-    based on
-    <a href="https://startbootstrap.com/template-overviews/sb-admin/">SB Admin</a>
-    by <a href="http://davidmiller.io/">David Miller</a>.
-    </div>
 
     <!-- jQuery -->
     <script src="{{skin}}/js/jquery.js"></script>
