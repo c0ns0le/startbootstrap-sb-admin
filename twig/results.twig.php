@@ -18,7 +18,7 @@
             <h4>{{ hits|length }} results:</h4>
             <ol>
             {% for hit in hits %}
-                <li>[{{ hit.score }}] "{{ hit.title|default('Unknown title') }}", {#
+                <li>[{{ hit.score }}] <a href="{{hit.href|raw}}">"{{ hit.title|default('Unknown title') }}"</a>, {#
                     #}a {{ hit.world|default('unknown-world') }} resource</li>
             {% endfor %}
             </ol>
